@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Vue Todo list</title>
+</head>
+<body>
+    <div id="app" class="container">
+        <div class="logo">
+            <img src="https://www.boolean.careers/images/misc/logo.png" alt="Logo Boolean">
+        </div>
+
+        <div class="new-todo">
+            <input @keyup.enter="addTodo" placeholder="Nuovo Todo" type="text" class="input-text" v-model="newTodo">
+            <button @click="addTodo" class="btn-send">Aggiungi</button>
+        </div>
+
+        <div class="todos-container">
+            <ul v-if="todos.length > 0">
+                <li v-for= "(todo, index) in todos">
+                    {{ todo }}
+                    <i @click="removeTodo(index)" class="fas fa-times"></i>
+                </li>
+            </ul>
+
+            <h2 v-else>Non ci sono Todos</h2>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
